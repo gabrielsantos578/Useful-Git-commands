@@ -1,0 +1,117 @@
+git config --global user.name "<username ou apelido>" -> configura um nome de usuario global dentro das configurações do git. Ex: "gabrielsantos578" ou "Gabriel Machado dos Santos"
+git config --global user.name -> devolve o nome de usuário (se houver algum configurado ou não)
+
+git config --global user.email "<e-mail>" -> configura um e-mail de usuario global dentro das configurações do git. Ex: "github@gmail.com" (o mesmo e-mail vinculado a conta do github)
+git config --global user.email -> devolve o e-mail de usuário (se houver algum configurado ou não)
+
+OBS: Em ambos os comandos, ao configurar um dado global, se tentar colocar outro dado, o antigo será removido e o novo adicionado
+
+git config --global --unset-all user.name -> remove o nome das configurações
+git config --global --unset-all user.email -> remove o e-mail das configurações
+
+git config --list -> devolve todas as configurações do git no SO
+
+
+git config --global init.defaultBranch <nome> -> configura que em todo reposotirio criado localmente, a branch padrão irá ter o nome especificado
+
+
+
+
+git init -> cria um repositório local se no caminho não existe um (no desktop)
+
+git status -> devolve todos os novos arquivos, ou seja, não rastreados (untracked) e os alterados (modified) e seu caminho não rastreados dentro do repositório
+git status . -> devolve todos os novos arquivos e os alterados e seu caminho não rastreados dentro do repositório no caminho git bash (o caminho em que abriu a interface Git Bash, por exemplo: -/Git/ClassRepo/Class1)
+
+git add -> rastreia (tracked) todos os novos arquivos e os alterados e prepara-os (stage) (Working Directory -> Staging Area)
+git add . -> rastreia todos os novos arquivos e os alterados no caminho do git bash e prepara-os
+git add <caminho> -> rastreia o(s) arquivo(s) no caminho especificado e prepara-o(s)
+
+git rm --cached -r . -> remove todos os arquivos que foram rastreados do rastreamento do git  (Working Directory <- Staging Area)
+git rm --cached <caminho> -> remove o(s) arquivo(s) rastreado(s) no caminho especificado para a área de não rastreado
+
+git commit -m "<documentação>" -> salva (commited) todos os arquivos (alterações ou adições) rastreados no histórico do repositório (Staging Area -> Repository), estes mesmos arquivos agora estão não modificados (unmodified). Documentação: https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos/    https://github.com/iuricode/padroes-de-commits
+
+git diff -> compara a versão modified com a versão commited mais recente de um arquivo já rastreado (tracked)
+git diff --staged -> compara a versão stage com a versão commited mais recente de um arquivo já rastreado
+
+
+
+
+git log -> mostra todos os commits e suas informações
+git log --oneline -> mostra o histórico de commit
+git log -<quantidade de commits> -> pega os ultimos commits que informar. Ex: ultimos 10 commits
+git log -p -> mostra os commits, informações e mudanças/adicões
+git log --stat -> mostra os commits, informações e arquivos alterados/adicionados
+git log -shortstat -> git log --stat -> mostra os commits, informações e a quantidade de adições, alterações e remoções
+
+
+git commit --amend -m "<documentação>" -> descarta o último commit e cria um novo com a documentação informada
+git commit --amend --no-edit -> descarta o último commit e cria um novo, adicionando junto alterações rastreadas que não haviam no commit
+git commit --amend -> abre o editor de texto do git com o ultimo commit para ser alterado
+
+
+git config --global core.editor "code --wait" -> configura o git para abrir o editor de texto do git usando o VS Code
+
+
+
+git checkout <hash commit> -> volta para o commit informado, trazendo os arquivos na versão em que estavam no commit
+git checkout <nome da branch> -> retorna para o commit mais recente da branch
+git checkout <nome do arquivo> -> reverte o estado do arquivo, retornando para seu estado no ultimo commit (ou, a ultima versão criada no repositorio)
+
+git clean -f -> remove os arquivos não rastreados do diretório. OBS: -f força todos arquivos não rastreados serem removidos
+
+git restore --staged <nome do arquivo> -> remove o arquivo voltando para o estado do ultimo commit
+
+git reset --hard -> limpa e remove todos arquivos alterados e adicionados, voltando para o estado do ultimo commit
+
+
+git update-index --skip-worktree <nome do arquivo> -> atualiza o controle do git quanto as configurações do .gitignore sobre arquivo, se deve ignorado
+git update-index --no-skip-worktree <nome do arquivo> -> remove o controle do git quanto as configurações do .gitignore sobre arquivo, portanto o git passa a "ver" o arquivo
+
+
+git clone <url> -> cria um clone de um repositorio online no desktop
+
+
+clear -> limpa a interface do git
+
+touch .gitignore -> cria um arquivo para configurar pastas e arquivos que devem ser ignorados pelo git
+
+
+
+
+
+
+ls -> devolve todos os arquivos e pastas vísiveis dentro do caminho
+ls -a -> devolve todos os arquivos e pastas vísiveis e ocultos dentro do caminho
+
+
+
+
+
+
+git clone <nome do repositorio ou pasta> <novo nome> -> cria um clone do repositório informado com o novo nome
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
