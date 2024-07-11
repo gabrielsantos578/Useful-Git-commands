@@ -1,6 +1,10 @@
 # Comandos Úteis do Git
 
-## Áreas dos Arquivos:
+No repositório é fornecido uma breve base de comandos git, de forma simplificada e rápida, porém recomenda-se um estudo para entender os conceitos do Git e seus comandos, bem como para o que e por que cada um é utilizado.
+
+## Breves Conceitos
+
+**Áreas dos Arquivos:**
 
   - *Working Directory:* é onde os arquivos são trabalhados e modificados antes de serem adicionados ao stage.
 
@@ -8,7 +12,7 @@
 
   - *Repository:* é o banco de dados do Git onde todos os commits são armazenados permanentemente como histórico do projeto.
 
-## Estados dos Arquivos:
+**Estados dos Arquivos:**
 
   - *Untracked:* são arquivos novos no diretório de trabalho que o Git ainda não está rastreando.
 
@@ -17,6 +21,16 @@
   - *Modified:* são arquivos que foram modificados desde o último commit, mas ainda não foram adicionados ao stage.
 
   - *Staged:* são arquivos que foram modificados e adicionados ao stage, prontos para serem incluídos no próximo commit.
+
+## Outros Conceitos Importantes:
+
+- **Branches:** são ramificações do desenvolvimento do código. Cada branch pode representar uma linha separada de desenvolvimento, permitindo um desenvolvimento paraelo sem interferir na branch principal (normalmente `master` ou `main`), mas pode ser integrado a branch principal durante a linha do tempo.
+
+- **Commits:** são versões de arquivos, pastas e outros componentes dentro do repositório. Cada commit deve ter uma mensagem descritiva que indica as adições e/ou alterações feitas.
+
+<br>
+
+Esses conceitos são fundamentais para compreender como o Git gerencia e controla o código ao longo do tempo, facilitando no entendimento de comandos e seu uso no gerenciamento de versões de software.
 
 ***
 
