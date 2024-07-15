@@ -1,0 +1,75 @@
+### Configurações Globais
+
+git config --global user.name "<username_ou_nome>"      # Configura o nome de usuário global. Exemplo: "github354" ou "GitHub"
+git config --global user.email "<e-mail>"                  # Configura o e-mail de usuário global. Exemplo: "github@gmail.com"
+git config --global --unset-all user.name                  # Remove o nome das configurações globais
+git config --global --unset-all user.email                 # Remove o e-mail das configurações globais
+git config --list                                          # Lista todas as configurações do Git no sistema operacional
+
+### Repositório Local
+
+git init                                                  # Inicializa um novo repositório Git no diretório atual
+git status                                                # Exibe o status dos arquivos no diretório de trabalho e índice
+git add <caminho>                                         # Adiciona arquivos ao índice. Exemplo: git add .
+git rm --cached <caminho>                                 # Remove arquivos específicos do índice
+git diff                                                  # Exibe as diferenças não comitadas entre o diretório de trabalho e o índice
+
+### Commits
+
+git commit -m "<documentacao>"                             # Grava as alterações do índice no histórico do repositório
+git commit --amend -m "<documentacao>"                     # Reescreve o último commit com novas alterações e mensagem
+git commit -a -m "<documentacao>"                          # Adiciona e comita todas as alterações em arquivos rastreados
+
+### Histórico e Log
+
+git log                                                    # Exibe o histórico de commits
+git log --oneline                                          # Exibe o histórico de commits de forma resumida
+
+### Branches
+
+git branch --list                                          # Lista todas as branches do repositório
+git branch <nome_branch>                                   # Cria uma nova branch
+git switch <nome_branch>                                   # Muda para uma branch existente
+
+### Clonagem e Remotos
+
+git clone <url>                                            # Clona um repositório remoto
+git remote -v                                              # Lista as URLs de repositórios remotos
+git remote add <palavra-chave> <url>                       # Adiciona um repositório remoto
+
+### Push e Pull
+
+git push                                                   # Envia commits locais para o repositório remoto
+git pull                                                   # Puxa e incorpora mudanças do repositório remoto
+
+### Limpeza e Restauração
+
+git clean -f                                               # Remove arquivos não rastreados do diretório de trabalho
+git reset --hard                                           # Desfaz todas as alterações locais e reseta para o último commit
+
+### Rebases e Merges
+
+git merge <nome_branch>                                    # Incorpora mudanças de outra branch na branch atual
+git rebase <nome_branch>                                   # Reaplica commits da branch atual sobre outra branch
+git rebase --abort                                         # Aborta o rebase e reverte as mudanças
+
+### Outros Comandos
+
+git checkout <nome_da_branch>                              # Muda para a branch mais recente
+git checkout <nome_do_arquivo>                             # Reverte um arquivo para o estado do último commit
+
+### SSH
+
+ssh-keygen                                                 # Gera uma nova chave SSH
+eval $(ssh-agent)                                          # Inicia o agente SSH
+ssh-add <caminho_chave_privada>                            # Adiciona uma chave SSH privada ao agente
+
+### Comandos de Navegação
+
+cd <caminho>                                               # Navega para um diretório especificado. Exemplo: cd C:\Users\<usuario>\<caminho_da_pasta>
+ls                                                         # Lista arquivos e pastas no diretório atual
+pwd                                                        # Exibe o caminho atual
+
+### Limpeza
+
+clean                                                      # Limpa a interface do Git Bash

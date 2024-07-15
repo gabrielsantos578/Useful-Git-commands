@@ -1,0 +1,95 @@
+Configurações Globais
+git config --global user.name "<username ou apelido>": Configura um nome de usuário global nas configurações do Git. Exemplo: "gabrielsantos578" ou "Gabriel Machado dos Santos".
+git config --global user.name: Devolve o nome de usuário (se houver algum configurado).
+git config --global user.email "<e-mail>": Configura um e-mail de usuário global nas configurações do Git. Exemplo: "github@gmail.com" (o mesmo e-mail vinculado à conta do GitHub).
+git config --global user.email: Devolve o e-mail de usuário (se houver algum configurado).
+git config --global --unset-all user.name: Remove o nome das configurações globais.
+git config --global --unset-all user.email: Remove o e-mail das configurações globais.
+git config --list: Devolve todas as configurações do Git no sistema operacional.
+git config --global init.defaultBranch <nome>: Configura que, em todo repositório criado localmente, a branch padrão terá o nome especificado.
+git config --global core.editor "code --wait": Configura o Git para abrir o editor de texto usando o VS Code.
+git config --global alias.<abreviacao_comando> <comando>: Abrevia o comando informado. Exemplo: git config --global alias.s status, assim git s terá a mesma saída que git status.
+git config --global alias.next 'rebase --continue': Para comandos maiores, use aspas simples.
+git config --global --unset alias.<abreviacao_comando>: Remove a abreviação informada. Exemplo: git config --global --unset alias.next.
+Repositório Local
+git init: Cria um repositório local no caminho atual.
+git status: Devolve todos os novos arquivos (não rastreados) e os alterados (modificados) e seu caminho dentro do repositório.
+git status .: Devolve todos os novos arquivos e os alterados no caminho atual do Git Bash.
+git add: Rastreia todos os novos arquivos e os alterados, preparando-os para o commit.
+git add .: Rastreia todos os novos arquivos e os alterados no caminho atual do Git Bash.
+git add <caminho>: Rastreia o(s) arquivo(s) no caminho especificado.
+git rm --cached -r .: Remove todos os arquivos rastreados do rastreamento do Git.
+git rm --cached <caminho>: Remove o(s) arquivo(s) rastreado(s) no caminho especificado.
+git diff: Compara a versão modificada com a versão commitada mais recente de um arquivo já rastreado.
+git diff --staged: Compara a versão staged com a versão commitada mais recente de um arquivo já rastreado.
+Commits
+git commit -m "<documentação>": Salva (commita) todos os arquivos rastreados no histórico do repositório.
+git commit --amend -m "<documentação>": Descarta o último commit e cria um novo com a documentação informada.
+git commit --amend --no-edit: Descarta o último commit e cria um novo, adicionando alterações rastreadas que não haviam no commit.
+git commit --amend: Abre o editor de texto do Git com o último commit para ser alterado.
+git commit -a -m "<documentação>": Adiciona e salva todos os arquivos adicionados e alterados no histórico do repositório.
+Histórico e Log
+git log: Mostra todos os commits e suas informações.
+git log --oneline: Mostra o histórico de commits de forma resumida.
+git log -<quantidade de commits>: Mostra os últimos commits informados. Exemplo: últimos 10 commits.
+git log -p: Mostra os commits, informações e mudanças/adicionões.
+git log --stat: Mostra os commits, informações e arquivos alterados/adicionados.
+git log --shortstat: Mostra os commits, informações e a quantidade de adições, alterações e remoções.
+git log <nome branch> --oneline: Mostra o histórico de commits da branch informada.
+Branches
+git branch --list: Mostra todas as branches do repositório.
+git branch <nome branch>: Cria uma nova branch com o nome informado.
+git branch -m <nome branch> <novo nome>: Renomeia a branch informada.
+git branch -a: Mostra todas as branches do repositório remoto.
+git branch -D <nome branch>: Força a remoção da branch informada.
+git switch <nome branch>: Muda para a branch informada.
+git switch -c <nome branch>: Cria uma nova branch e muda para ela automaticamente.
+git switch -f <nome branch>: Muda de branch limpando a atual e removendo as alterações feitas.
+Clonagem e Remotos
+git clone <url>: Cria um clone de um repositório online no desktop.
+git clone <url> <nome>: Cria um clone de um repositório online no desktop e configura o nome da pasta.
+git remote -v: Lista todas as URLs associadas ao repositório local.
+git remote add <palavra-chave> <url>: Configura uma nova URL para um repositório remoto.
+git remote set-url <palavra-chave> <url>: Atualiza a URL de um repositório remoto existente.
+Push e Pull
+git push: Envia commits locais para o repositório remoto.
+git push -u origin main: Envia commits locais para o repositório remoto e configura o rastreamento automático.
+git push --force: Força as mudanças do repositório local a sobrescreverem o remoto.
+git push --force-with-lease: Força as mudanças do repositório local a sobrescreverem o remoto se nenhuma mudança for perdida.
+git pull: Baixa commits do repositório remoto e integra as mudanças na branch local.
+git pull --rebase: Traz as mudanças do repositório remoto, reescrevendo os commits que foram criados no repositório local posteriormente.
+Limpeza e Restauração
+git clean -f: Remove os arquivos não rastreados do diretório.
+git restore --staged <nome do arquivo>: Remove o arquivo voltando para o estado do último commit.
+git reset --hard: Limpa e remove todos os arquivos alterados e adicionados, voltando para o estado do último commit.
+git reset --soft HEAD: Remove o último commit, mantendo as alterações prontas para serem commitadas novamente.
+git reset --mixed HEAD: Remove o último commit, trazendo as alterações para serem adicionadas e commitadas novamente.
+Rebases e Merges
+git merge <nome branch>: Traz as alterações da branch informada para a branch atual.
+git merge --abort: Aborta o merge e remove as alterações trazidas.
+git rebase <nome branch>: Traz as mudanças/commits da branch informada para a branch atual, inserindo os commits após o commit mais atual.
+git rebase --abort: Aborta o rebase e remove as alterações trazidas.
+git rebase --continue: Após resolver conflitos, continue o rebase.
+git rebase --interactive HEAD~<numero>: Mescla as alterações dos últimos commits em um só commit.
+Outros Comandos
+git checkout <hash commit>: Volta para o commit informado.
+git checkout <nome da branch>: Retorna para o commit mais recente da branch.
+git checkout <nome do arquivo>: Reverte o estado do arquivo para o último commit.
+git bisect start: Inicia um processo de busca binária para identificar commits "maliciosos".
+git bisect good <hash_commit_antigo>: Define um commit considerado bom.
+git bisect bad <hash_commit_recente>: Define um commit considerado ruim.
+git bisect reset: Encerra o processo de busca binária.
+git cherry-pick <hash_commit>: Traz as alterações do commit informado para a branch atual.
+git revert HEAD: Cria um commit revertendo as alterações do commit atual.
+git revert HEAD~<numero>: Cria um commit revertendo as alterações dos últimos commits.
+git revert HEAD --no-edit: Reverte uma reversão já feita no último commit.
+git revert <hash_commit>: Cria um commit revertendo as alterações do commit especificado.
+git revert <hash_commit_reversao> --no-edit: Reverte a reversão especificada.
+SSH
+ssh-keygen: Configura uma chave SSH na pasta ~/.ssh/.
+eval $(ssh-agent): Inicia um agente do SSH.
+ssh-add <caminho chave privada>: Configura a chave SSH privada a ser utilizada pelo agente. Exemplo: ssh-add ~/.ssh/id_rsa.
+Comandos de Navegação
+cd <caminho>: Navega para a pasta informada. Exemplo: cd C:\Users\<usuario>\<caminho da pasta> ou cd <caminho da pasta>.
+ls: Lista os arquivos e pastas no caminho atual.
+pwd: Devolve o caminho atual.
