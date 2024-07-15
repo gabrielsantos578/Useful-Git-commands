@@ -1,32 +1,35 @@
 # Comandos Úteis do Git
 
-No repositório é fornecido uma breve base de comandos git, de forma simplificada e rápida, porém recomenda-se um estudo para entender os conceitos do Git e seus comandos, bem como para o que e por que cada um é utilizado.
+Neste repositório, é fornecida uma breve base de comandos Git, de forma simplificada e rápida. Recomenda-se o estudo aprofundado para entender os conceitos do Git, seus comandos, bem como o motivo e o cenários correta=os de sua utilização.
 
 ## Breves Conceitos
 
 **Áreas dos Arquivos:**
 
-  - *Working Directory:* é onde os arquivos são trabalhados e modificados antes de serem adicionados ao stage.
-
-  - *Staging Area:* é onde os arquivos modificados são preparados para o commit. Os arquivos nesta área estão prontos para serem incluídos na próxima confirmação.
-
-  - *Repository:* é o banco de dados do Git onde todos os commits são armazenados permanentemente como histórico do projeto.
+- ***Working Directory:*** * é onde os arquivos são `trabalhados e modificados` antes de serem adicionados ao Stage. {#working_directory}
+- ***Staging Area:*** é onde os arquivos modificados são `preparados` para o commit. Os arquivos nesta área estão prontos para serem incluídos na próxima confirmação. {#staging_area}
+- ***Repository:*** é o banco de dados do Git onde `todos os commits são armazenados` permanentemente como `histórico do projeto`. {#repository}
 
 **Estados dos Arquivos:**
 
-  - *Untracked:* são arquivos novos no diretório de trabalho que o Git ainda não está rastreando.
-
-  - *Tracked/Unmodified:* são arquivos que já foram commitados e rastreados pelo Git, porém não foram modificados desde o último commit.
-
-  - *Modified:* são arquivos que foram modificados desde o último commit, mas ainda não foram adicionados ao stage.
-
-  - *Staged:* são arquivos que foram modificados e adicionados ao stage, prontos para serem incluídos no próximo commit.
+- ***Untracked:*** são `arquivos novos` no diretório de trabalho, que `não estão rastreados` pelo Git. {#untracked}
+- ***Tracked/Unmodified:*** são arquivos que já foram `rastreados` e `commitados` pelo Git, mas `não foram modificados` desde o último commit. {#tracked} {#unmodified}
+- ***Modified:*** são arquivos que foram `modificados` desde o último commit, mas ainda não foram adicionados ao stage. {#modified}
+- ***Staged:*** são arquivos que foram modificados e `adicionados ao Stage`, prontos para serem incluídos no próximo commit. {#staged}
 
 ## Outros Conceitos Importantes:
 
-- **Branches:** são ramificações do desenvolvimento do código. Cada branch pode representar uma linha separada de desenvolvimento, permitindo um desenvolvimento paralelo sem interferir na branch principal (normalmente `master` ou `main`), mas pode ser integrado a branch principal durante a linha do tempo.
+- ***Branches:*** são `ramificações` do desenvolvimento do código. Cada branch pode representar uma linha separada de desenvolvimento, permitindo um desenvolvimento paralelo sem interferir na branch principal (normalmente `master` ou `main`). Mudanças e alterações feitas nas ramificações podem ser integradas à branch principal durante a linha do tempo. {#branch}
 
-- **Commits:** são versões de arquivos, pastas e outros componentes dentro do repositório. Cada commit deve ter uma mensagem descritiva que indica as adições e/ou alterações feitas.
+- ***Commits:*** são `versões` de arquivos, pastas e outros componentes dentro do repositório. Cada commit deve ter uma mensagem descritiva que indica as adições e/ou alterações feitas. {#commit}
+
+- ***HEAD:*** é um `ponteiro` especial que indica o commit atual no qual o repositório se encontra no branch ativo, normalmente apontando para o último commit do histórico. No entanto, o HEAD pode apontar para commits mais antigos quando comandos específicos são usados, resultando em um estado conhecido como `detached HEAD`. Observação: um branch sempre irá apontar para o commit mais recente e visível no histórico; por outro lado, o HEAD pode apontar para o mesmo commit ou outros selecionados. {#head}
+
+## Alertas:
+
+- **Alteração do Histórico de Commits:** Ao trabalhar em equipe, é crucial manter a integridade do histórico de commits. Alterações ou reescritas no histórico podem comprometer a rastreabilidade e a colaboração eficaz. Recomenda-se seguir práticas de rebase seguro ou uso adequado de revert e reset para evitar problemas. Quando comandos que sobrescrevem o histórico são utilizados e essas ações são mescladas para o repositório remoto, comunique e entre em acordo com sua equipe.
+
+- **Conflitos:** Conflitos ocorrem quando duas ou mais alterações são feitas na mesma parte de um arquivo ou projeto. Resolver conflitos de maneira inadequada pode levar à perda de trabalho, introdução de erros e atrasos no desenvolvimento. É fundamental comunicar e coordenar alterações entre os membros da equipe para minimizar conflitos e resolver eficientemente quando surgirem. Se eventualmente surgirem conflitos, revise cuidadosamente cada arquivo e aceite as alterações corretas.
 
 <br>
 
