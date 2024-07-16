@@ -1,130 +1,157 @@
-### Configurações Globais
+# Configurações globais de usuário
+git config --global user.name "<username ou apelido>"        # Configura um nome de usuário global. Ex: "gabrielsantos578" ou "Gabriel Machado dos Santos"
+git config --global user.name                                # Devolve o nome de usuário configurado (se houver)
+git config --global user.email "<e-mail>"                    # Configura um e-mail de usuário global. Ex: "github@gmail.com"
+git config --global user.email                               # Devolve o e-mail de usuário configurado (se houver)
+# OBS: Configurações globais substituem dados antigos
 
-# Configurações de usuário
-git config --global user.name "<username_ou_apelido>"      # Configura o nome de usuário global. Exemplo: "github354" ou "GitHub"
-git config --global user.name                              # Exibe o nome de usuário configurado
-git config --global user.email "<e-mail>"                  # Configura o e-mail de usuário global. Exemplo: "github@gmail.com"
-git config --global user.email                             # Exibe o e-mail de usuário configurado
-git config --global --unset-all user.name                  # Remove o nome das configurações globais
-git config --global --unset-all user.email                 # Remove o e-mail das configurações globais
+# Remover configurações globais de usuário
+git config --global --unset-all user.name                    # Remove o nome de usuário das configurações
+git config --global --unset-all user.email                   # Remove o e-mail de usuário das configurações
 
-# Configurações diversas
-git config --list                                          # Lista todas as configurações do Git no sistema operacional
-git config --global init.defaultBranch <nome>              # Configura o nome da branch padrão para novos repositórios locais
-git config --global core.editor "code --wait"              # Configura o editor de texto do Git para o VS Code
+# Outras configurações
+git config --list                                            # Devolve todas as configurações do git no sistema operacional
+git config --global init.defaultBranch <nome>                # Configura a branch padrão para novos repositórios locais
+git config --global core.editor "code --wait"                # Configura o VS Code como editor de texto do git
 
-# Aliases
-git config --global alias.<abreviacao_comando> <comando>   # Abrevia um comando do Git. Exemplo: git config --global alias.s status
-git config --global alias.next 'rebase --continue'         # Abreviação com comando maior, use aspas simples
-git config --global --unset alias.<abreviacao_comando>     # Remove a abreviação de comando. Exemplo: git config --global --unset alias.next
+# Inicialização de repositório
+git init                                                    # Cria um repositório local no diretório atual
 
-### Repositório Local
+# Status do repositório
+git status                                                  # Devolve todos os arquivos novos e alterados não rastreados
+git status .                                                # Devolve todos os arquivos novos e alterados não rastreados no diretório atual
 
-# Inicialização e status
-git init                                                  # Inicializa um novo repositório Git no diretório atual
-git status                                                # Exibe o status dos arquivos no diretório de trabalho e índice
-git status .                                              # Exibe o status dos arquivos no diretório de trabalho atual
+# Adicionar arquivos ao rastreamento
+git add                                                     # Rastreia todos os novos arquivos e alterados
+git add .                                                   # Rastreia todos os novos arquivos e alterados no diretório atual
+git add <caminho>                                           # Rastreia o(s) arquivo(s) no caminho especificado
 
-# Adição e remoção de arquivos
-git add                                                   # Adiciona arquivos ao índice (staging area). Exemplo: git add <caminho> ou git add .
-git rm --cached -r .                                      # Remove todos os arquivos rastreados do índice
-git rm --cached <caminho>                                 # Remove arquivos específicos do índice
+# Remover arquivos do rastreamento
+git rm --cached -r .                                        # Remove todos os arquivos rastreados do rastreamento do git
+git rm --cached <caminho>                                   # Remove o(s) arquivo(s) rastreados no caminho especificado
 
-# Diferenças entre versões
-git diff                                                  # Exibe as diferenças não comitadas entre o diretório de trabalho e o índice
-git diff --staged                                         # Exibe as diferenças entre o índice e o último commit
+# Comparação de versões
+git diff                                                    # Compara a versão modified com a versão commited mais recente
+git diff --staged                                           # Compara a versão stage com a versão commited mais recente
 
-### Commits
+# Histórico de commits
+git log                                                     # Mostra todos os commits e suas informações
+git log --oneline                                           # Mostra o histórico de commits em formato resumido
+git log -<quantidade de commits>                            # Mostra os últimos commits especificados. Ex: últimos 10 commits
+git log -p                                                  # Mostra os commits, informações e mudanças/adicionações
+git log --stat                                              # Mostra os commits, informações e arquivos alterados/adicionados
+git log -shortstat                                          # Mostra os commits, informações e a quantidade de adições, alterações e remoções
+git log <nome branch> --oneline                             # Mostra o histórico de commits da branch informada
 
-git commit -m "<documentacao>"                             # Grava as alterações do índice no histórico do repositório
-git commit --amend -m "<documentacao>"                     # Reescreve o último commit com novas alterações e mensagem
-git commit --amend --no-edit                               # Reescreve o último commit com novas alterações, mantendo a mensagem
-git commit --amend                                         # Abre o editor para reescrever o último commit
-git commit -a -m "<documentacao>"                          # Adiciona e comita todas as alterações em arquivos rastreados
+# Commit de alterações
+git commit -m "<documentação>"                              # Salva todas as alterações rastreadas com uma mensagem de commit
+git commit --amend -m "<documentação>"                      # Descarta o último commit e cria um novo com a documentação informada
+git commit --amend --no-edit                                # Descarta o último commit e cria um novo sem alterar a mensagem
+git commit --amend                                          # Abre o editor de texto do git para alterar o último commit
+git commit -a -m "<documentação>"                           # Adiciona e salva todas as alterações no histórico do repositório
 
-### Histórico e Log
+# Navegação e limpeza do repositório
+git checkout <hash commit>                                  # Volta para o commit informado
+git checkout <nome da branch>                               # Retorna para o commit mais recente da branch
+git checkout <nome do arquivo>                              # Reverte o estado do arquivo para o último commit
+git clean -f                                                # Remove os arquivos não rastreados do diretório atual
+git restore --staged <nome do arquivo>                      # Remove o arquivo da área de staged voltando para o último commit
+git reset --hard                                            # Limpa e remove todos os arquivos alterados e adicionados, voltando para o último commit
+git update-index --skip-worktree <nome do arquivo>          # Ignora as configurações do .gitignore para o arquivo especificado
+git update-index --no-skip-worktree <nome do arquivo>       # Remove a ignorância do .gitignore para o arquivo especificado
 
-git log                                                    # Exibe o histórico de commits
-git log --oneline                                          # Exibe o histórico de commits de forma resumida
-git log -<quantidade_de_commits>                           # Exibe os últimos N commits. Exemplo: git log -10
-git log -p                                                 # Exibe o histórico de commits com mudanças detalhadas
-git log --stat                                             # Exibe o histórico de commits com estatísticas de alterações
-git log --shortstat                                        # Exibe o histórico de commits com resumo de alterações
-git log <nome_branch> --oneline                            # Exibe o histórico de commits de uma branch específica
+# Clonar repositório
+git clone <url>                                             # Cria um clone de um repositório online
+git clone <url> <nome>                                      # Cria um clone de um repositório online com o nome especificado
 
-### Branches
+# Limpar interface do git
+clear                                                      # Limpa a interface do git
 
-git branch --list                                          # Lista todas as branches do repositório
-git branch <nome_branch>                                   # Cria uma nova branch
-git branch -m <nome_branch> <novo_nome>                    # Renomeia uma branch existente
-git branch -a                                              # Lista todas as branches, incluindo remotas
-git branch -D <nome_branch>                                # Força a exclusão de uma branch
-git switch <nome_branch>                                   # Muda para uma branch existente
-git switch -c <nome_branch>                                # Cria e muda para uma nova branch
-git switch -f <nome_branch>                                # Muda de branch descartando alterações locais
+# Criar arquivo .gitignore
+touch .gitignore                                           # Cria um arquivo para configurar pastas e arquivos a serem ignorados pelo git
 
-### Clonagem e Remotos
+# Configurações de repositório remoto
+git remote -v                                              # Lista todas as URLs associadas ao repositório local
+git remote add <palavra-chave> <url>                       # Configura uma nova URL para um repositório remoto
+git remote set-url <palavra-chave> <url>                   # Atualiza a URL de um repositório remoto já existente
 
-git clone <url>                                            # Clona um repositório remoto
-git clone <url> <nome>                                     # Clona um repositório remoto em um diretório específico
-git remote -v                                              # Lista as URLs de repositórios remotos
-git remote add <palavra-chave> <url>                       # Adiciona um repositório remoto
-git remote set-url <palavra-chave> <url>                   # Atualiza a URL de um repositório remoto
-
-### Push e Pull
-
+# Enviar e receber alterações
 git push                                                   # Envia commits locais para o repositório remoto
-git push -u origin main                                    # Envia commits locais e configura o rastreamento da branch
-git push --force                                           # Força a atualização do repositório remoto
-git push --force-with-lease                                # Força a atualização, mas previne a perda de commits
-git pull                                                   # Puxa e incorpora mudanças do repositório remoto
-git pull --rebase                                          # Puxa e reescreve commits locais em cima dos commits remotos
+git push -u origin main                                    # Envia commits locais e configura rastreamento automático
+git push --force                                           # Força as mudanças do repositório local a sobrescreverem o remoto
+git push --force-with-lease                                # Força as mudanças do repositório local a sobrescreverem o remoto se nenhuma mudança for perdida
+git pull                                                   # Baixa commits do repositório remoto e integra as mudanças na branch local
+git pull --rebase                                          # Traz as mudanças do repositório remoto reescrevendo os commits locais
 
-### Limpeza e Restauração
+# Gerenciamento de chaves SSH
+ssh-keygen                                                 # Configura uma chave SSH na pasta ~/.ssh/
+eval $(ssh-agent)                                          # Inicia um agente do SSH
+ssh-add <caminho chave privada>                            # Configura a chave SSH privada para o agente. Ex: ssh-add ~/.ssh/id_rsa
 
-git clean -f                                               # Remove arquivos não rastreados do diretório de trabalho
-git restore --staged <nome_do_arquivo>                     # Remove arquivos do índice, mantendo no diretório de trabalho
-git reset --hard                                           # Desfaz todas as alterações locais e reseta para o último commit
-git reset --soft HEAD                                      # Remove o último commit, mantendo as alterações no índice
-git reset --mixed HEAD                                     # Remove o último commit, mantendo as alterações no diretório de trabalho
+# Navegação no sistema de arquivos
+cd <caminho>                                               # Navega para a pasta especificada
+start .                                                    # Abre o gerenciador de arquivos no diretório atual
 
-### Rebases e Merges
+# Gerenciamento de branches
+git branch --list                                          # Mostra todas as branches do repositório
+git branch <nome branch>                                   # Cria uma nova branch com o nome especificado
+git branch -m <nome branch> <novo nome>                    # Renomeia a branch especificada
+git branch -a                                              # Mostra todas as branches do repositório remoto
+git branch -D <nome branch>                                # Força a remoção da branch especificada
+git push --set-upstream origin <nome branch>               # Remove o mapeamento automático da branch especificada
+git push --delete origin <nome branch>                     # Remove a branch especificada do repositório remoto
+git switch <nome branch>                                   # Muda para a branch especificada
+git switch -c <nome branch>                                # Cria uma nova branch e muda para ela automaticamente
+git switch -f <nome branch>                                # Muda de branch limpando a atual e removendo as alterações
 
-git merge <nome_branch>                                    # Incorpora mudanças de outra branch na branch atual
-git merge --abort                                          # Aborta o merge e reverte as mudanças
-git rebase <nome_branch>                                   # Reaplica commits da branch atual sobre outra branch
-git rebase --abort                                         # Aborta o rebase e reverte as mudanças
-git rebase --continue                                      # Continua o rebase após resolver conflitos
-git rebase --interactive HEAD~<numero>                     # Interativamente mescla commits
+# Mesclar branches
+git merge <nome branch>                                    # Mescla as alterações da branch especificada para a branch atual
+git merge --abort                                          # Aborta o merge e remove as alterações trazidas
 
-### Outros Comandos
+# Gerenciamento de tags
+git tag <nome tag>                                         # Cria uma tag no commit atual
+git show <nome tag>                                        # Exibe as informações da tag especificada
+git tag -n                                                 # Exibe todas as tags no histórico de commits
+git tag -a -m <mensagem tag> <nome tag> <hash commit>      # Marca o commit especificado com uma tag
+git push --tags                                            # Envia todas as tags para o repositório remoto
+git checkout <nome tag>                                    # Volta o repositório para o estado do commit da tag
+git tag -d <nome tag>                                      # Remove a tag especificada
+git push --delete origin <nome tag>                        # Remove a tag especificada do repositório remoto
 
-git checkout <hash_commit>                                 # Muda para um commit específico
-git checkout <nome_da_branch>                              # Muda para a branch mais recente
-git checkout <nome_do_arquivo>                             # Reverte um arquivo para o estado do último commit
-git bisect start                                           # Inicia a busca binária para encontrar commits problemáticos
-git bisect good <hash_commit_antigo>                       # Marca um commit conhecido como bom
-git bisect bad <hash_commit_recente>                       # Marca um commit conhecido como ruim
-git bisect reset                                           # Finaliza a busca binária
-git cherry-pick <hash_commit>                              # Aplica as mudanças de um commit específico na branch atual
-git revert HEAD                                            # Cria um commit revertendo as mudanças do último commit
-git revert HEAD~<numero>                                   # Cria um commit revertendo as mudanças dos últimos N commits
-git revert HEAD --no-edit                                  # Reverte o último commit sem abrir o editor
-git revert <hash_commit>                                   # Reverte as mudanças de um commit específico
-git revert <hash_commit_reversao> --no-edit                # Reverte uma reversão específica
+# Salvamento de mudanças em cache
+git stash                                                  # Salva as mudanças feitas em cache/memória
+git stash list                                             # Mostra todas as mudanças salvas em cache
+git stash apply                                            # Aplica o stash mais recente
+git stash apply stash@{<id>}                               # Aplica um stash específico
+git stash pop                                              # Aplica o stash mais recente e o remove da lista de stashes
+git stash pop stash@{<id>}                                 # Aplica um stash específico e o remove da lista de stashes
+git stash drop                                             # Remove o stash mais recente da lista
+git stash drop stash@{<id>}                                # Remove um stash específico da lista
+git stash branch <nome_branch>                             # Cria uma branch com as mudanças do stash mais recente
+git stash branch <nome_branch> stash@{<id>}                # Cria uma branch com as mudanças de um stash específico
 
-### SSH
+# Reverter commits
+git revert HEAD                                            # Reverte o último commit
+git revert HEAD~<numero>                                   # Reverte os últimos <numero> commits
+git revert HEAD --no-edit                                  # Reverte o último commit sem abrir o editor de texto do git
+git revert --no-commit <hash_commit>..<hash_commit>        # Reverte um intervalo de commits sem criar novos commits
+git revert --continue                                      # Continua o processo de revert após resolver conflitos
 
-ssh-keygen                                                 # Gera uma nova chave SSH
-eval $(ssh-agent)                                          # Inicia o agente SSH
-ssh-add <caminho_chave_privada>                            # Adiciona uma chave SSH privada ao agente
+# Mensagens de logs customizadas
+git log --pretty=format:"%h - %an, %ar : %s"               # Formata a saída do log de commits com hash, autor, data e mensagem
+git log --graph --decorate --oneline                       # Exibe o log de commits em um formato gráfico com hash, autor, data e mensagem
 
-### Comandos de Navegação
+# Gerenciamento de commits cherry-pick
+git cherry-pick <hash_commit>                              # Aplica um commit específico em outra branch
+git cherry-pick --abort                                    # Aborta o processo de cherry-pick em andamento
+git cherry-pick --continue                                 # Continua o processo de cherry-pick após resolver conflitos
 
-cd <caminho>                                               # Navega para um diretório especificado. Exemplo: cd C:\Users\<usuario>\<caminho_da_pasta>
-ls                                                         # Lista arquivos e pastas no diretório atual
-pwd                                                        # Exibe o caminho atual
+# Gerenciamento de submódulos
+git submodule add <url> <pasta>                            # Adiciona um submódulo ao repositório
+git submodule init                                         # Inicializa todos os submódulos do repositório
+git submodule update                                       # Atualiza todos os submódulos do repositório
+git submodule deinit <pasta>                               # Remove a inicialização de um submódulo
+git submodule status                                       # Exibe o status de todos os submódulos do repositório
 
-### Limpeza
-
-clean                                                      # Limpa a interface do Git Bash
+# Exclusão de branches remotas não rastreadas
+git fetch --prune                                          # Remove branches remotas não rastreadas
