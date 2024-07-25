@@ -38,269 +38,596 @@ Esses conceitos são fundamentais para compreender como o Git gerencia e control
 ***
 <br>
 
-## 1. Configurações
+## Configurações:
 
-### *Configurar o Nome de Usuário Global:*
+**1** - Configura um nome de usuário global.
 ```
-git config --global user.name "<nome>"
+git config --global user.name "<username_ou_apelido>"
 ```
-Adiciona o nome do usuário globalmente dentro das configurações do Git.
-- Exemplo com nome: `git config --global user.name "GitHub"`
-- Exemplo com username: `git config --global user.name "github067"`
+Exemplo: `git config --global user.name "gabrielsantos578"`
+<br><br>
 
-<br>
-
-### *Exibir o Nome de Usuário Configurado:*
-```
-git config --global user.name
-```
-Exibe o nome de usuário configurado globalmente no Git.
-
-<br>
-
-### *Configurar o E-mail de Usuário Global:*
+**2** - Configura um e-mail de usuário global.
 ```
 git config --global user.email "<e-mail>"
 ```
-Adiciona o nome do usuário globalmente dentro das configurações do Git.
-- Exemplo: `git config --global user.email "github@gmail.com"`
+Exemplo: `git config --global user.email "github@gmail.com"`
+<br><br>
 
-<br>
-
-### *Exibir o E-mail de Usuário Configurado:*
-```
-git config --global user.email
-```
-Exibe o e-mail de usuário configurado globalmente no Git.
-
-<br>
-
-### *Remover o Nome de Usuário Configurado:*
+**3** - Remove o nome de usuário das configurações.
 ```
 git config --global --unset-all user.name
 ```
-Remove o nome das configurações globalmente do Git.
-
 <br>
 
-### *Remover o E-mail de Usuário Configurado:*
+**4** - Remove o e-mail das configurações.
 ```
 git config --global --unset-all user.email
 ```
-Remove o e-mail das configurações globalmente do Git.
-
 <br>
 
-### *Lista Todas as Configurações:*
+**5** - Lista todas as configurações do git no sistema operacional.
 ```
 git config --list
 ```
-Exibe todas as configurações do diretorio do Git.
-
 <br>
 
-### *Configura o Nome da Branch Padrão:*
+**6** - Configura a branch padrão para novos repositórios.
 ```
-git config --global init.defaultBranch <nome>
+git config --global init.defaultBranch <nome_branch>
 ```
-Altera o nome da branch padrão do repositório quando o mesmo é criado.
+Exemplo: `git config --global init.defaultBranch main`
+<br><br>
 
-<br>
-
-### *Configura o Editor de Texto do Git:*
+**7** - Configura o VS Code como editor padrão do git.
 ```
 git config --global core.editor "code --wait"
 ```
-Configura o editor de texto do Git para abrir no VS Code.
-
 <br>
+
+### Abreviações:
+<br>
+
+**8** - Cria uma abreviação para um comando.
+```
+git config --global alias.<abreviacao_comando> <comando>
+```
+Exemplo: `git config --global alias.s status`
+<br><br>
+
+**9** - Cria uma abreviação para um comando maior.
+```
+git config --global alias.next 'rebase --continue'
+```
+Exemplo: `git config --global alias.next 'rebase --continue'`
+<br><br>
+
+**10** - Remove a abreviação informada.
+```
+git config --global --unset alias.<abreviacao_comando>
+```
+Exemplo: `git config --global --unset alias.s`
+<br><br><br>
 
 ***
+
+## Repositório:
+
+### Clone:
 <br>
 
-## 2. Manipulação de Repositório
-
-### *Criar Repositório Local*
-```
-git init
-```
-
-### *Verificar Status do Repositório*
-```
-git status
-```
-
-### *Verificar Status no Caminho Atual*
-```
-git status .
-```
-
-### *Adicionar Todos os Arquivos*
-```
-git add
-```
-
-### *Adicionar Arquivos no Caminho Atual*
-```
-git add .
-```
-
-### *Adicionar Arquivo Específico*
-```
-git add <caminho>
-```
-
-### *Remover Todos os Arquivos Rastreáveis*
-```
-git rm --cached -r .
-```
-
-### *Remover Arquivo Específico Rastreável*
-```
-git rm --cached <caminho>
-```
-
-### *Commit de Arquivos*
-```
-git commit -m "<documentação>"
-```
-
-### *Comparar Versão Alterada com Commit mais Recente*
-```
-git diff
-```
-
-### *Comparar Versão Staged com Commit mais Recente*
-```
-git diff --staged
-```
-
-***
-<br>
-
-## 3. Histórico de Commits
-
-### *Mostrar Todos os Commits*
-```
-git log
-```
-
-### *Mostrar Histórico Resumido*
-```
-git log --oneline
-```
-
-### *Mostrar Últimos Commits*
-```
-git log -<quantidade de commits>
-```
-
-### *Mostrar Commits com Alterações*
-```
-git log -p
-```
-
-### *Mostrar Commits com Estatísticas*
-```
-git log --stat
-```
-
-### *Mostrar Commits com Estatísticas Resumidas*
-```
-git log -shortstat
-```
-
-***
-<br>
-
-## 4. Modificação de Commits
-
-### *Amendar Commit com Nova Mensagem*
-```
-git commit --amend -m "<documentação>"
-```
-
-### *Amendar Commit sem Editar Mensagem*
-```
-git commit --amend --no-edit
-```
-
-### *Amendar Commit com Edição de Mensagem*
-```
-git commit --amend
-```
-
-***
-<br>
-
-## 5.  Restauração de Arquivos e Commits
-
-### *Voltar para Commit Específico*
-```
-git checkout <hash commit>
-```
-
-### *Voltar para Commit Mais Recente de uma Branch*
-```
-git checkout <nome da branch>
-```
-
-### *Reverter Estado de Arquivo*
-```
-git checkout <nome do arquivo>
-```
-
-### *Remover Arquivos Não Rastreáveis*
-```
-git clean -f
-```
-
-### *Remover Arquivo da Área de Staging*
-```
-git restore --staged <nome do arquivo>
-```
-
-### *Resetar Alterações*
-```
-git reset --hard
-```
-
-### *Ignorar Arquivo no .gitignore*
-```
-git update-index --skip-worktree <nome do arquivo>
-```
-
-### *Remover Ignorância de Arquivo no .gitignore*
-```
-git update-index --no-skip-worktree <nome do arquivo>
-```
-
-***
-<br>
-
-## 6. Clonagem de Repositório
-
-### *Clonar Repositório Online*
+**11** - Clona um repositório online para o desktop.
 ```
 git clone <url>
 ```
+Exemplo: `git clone https://github.com/user/repo.git`
+<br><br>
 
-***
+**12** - Clona um repositório online com nome de pasta específico.
+```
+git clone <url> <nome>
+```
+Exemplo: `git clone https://github.com/user/repo.git nome_pasta`
+<br><br><br>
+
+### Histórico:
 <br>
 
-## 7. Limpeza de Interface
-
-### *Limpar Interface do Git*
+**13** - Compara a versão modificada com a versão commitada mais recente.
 ```
-clear
+git diff
 ```
-
-***
 <br>
 
-## 8. Arquivo .gitignore
+**14** - Compara a versão staged com a versão commitada mais recente.
+```
+git diff --staged
+```
+<br>
 
-### *Criar Arquivo .gitignore*
+**15** - Mostra todos os commits e suas informações.
+```
+git log
+```
+<br>
+
+**16** - Mostra o histórico de commits em uma linha.
+```
+git log --oneline
+```
+<br>
+
+**17** - Mostra os últimos commits informados.
+```
+git log -<quantidade_de_commits>
+```
+Exemplo: `git log -10`
+<br><br>
+
+**18** - Mostra o histórico de commits da branch informada.
+```
+git log <nome_branch> --oneline
+```
+Exemplo: `git log main --oneline`
+<br><br>
+
+**19** - Mostra commits, informações e arquivos alterados/adicionados.
+```
+git log --stat
+```
+<br>
+
+**20** - Mostra o histórico de commits da branch remota informada.
+```
+git log origin/<nome_branch> --oneline
+```
+Exemplo: `git log origin/main --oneline`
+<br><br><br>
+
+### Branch:
+<br>
+
+**21** - Mostra todas as branches do repositório.
+```
+git branch --list
+```
+<br>
+
+**22** - Cria uma nova branch com o nome informado.
+```
+git branch <nome_branch>
+```
+Exemplo: `git branch dev`
+<br><br>
+
+**23** - Renomeia a branch informada.
+```
+git branch -m <nome_branch> <novo_nome>
+```
+Exemplo: `git branch -m dev develop`
+<br><br>
+
+**24** - Mostra todas as branches, locais e remotas.
+```
+git branch -a
+```
+<br>
+
+**25** - Força a remoção da branch informada.
+```
+git branch -D <nome_branch>
+```
+Exemplo: `git branch -D dev`
+<br><br>
+
+**26** - Muda para a branch informada.
+```
+git switch <nome_branch>
+```
+Exemplo: `git switch dev`
+<br><br>
+
+**27** - Cria e muda para a nova branch.
+```
+git switch -c <nome_branch>
+```
+Exemplo: `git switch -c feature`
+<br><br>
+
+**28** - Muda de branch limpando a atual.
+```
+git switch -f <nome_branch>
+```
+Exemplo: `git switch -f main`
+<br><br>
+
+**29** - Volta para o commit informado.
+```
+git checkout <hash_commit>
+```
+Exemplo: `git checkout a1b2c3d`
+<br><br>
+
+**30** - Retorna para o commit mais recente da branch.
+```
+git checkout <nome_branch>
+```
+Exemplo: `git checkout dev`
+<br><br>
+
+**31** - Reverte o estado do arquivo para o último commit.
+```
+git checkout <nome_do_arquivo>
+```
+Exemplo: `git checkout arquivo.txt`
+<br><br><br>
+
+### Tags:
+<br>
+
+**32** - Cria uma tag no commit atual.
+```
+git tag <nome_tag>
+```
+Exemplo: `git tag v1.0`
+<br><br>
+
+**33** - Exibe as informações da tag.
+```
+git show <nome_tag>
+```
+Exemplo: `git show v1.0`
+<br><br>
+
+**34** - Exibe todas as tags e seus commits.
+```
+git tag -n
+```
+<br>
+
+**35** - Marca o commit especificado com uma tag.
+```
+git tag -a -m <mensagem_tag> <nome_tag> <hash_commit>
+```
+Exemplo: `git tag -a -m "Versão 1.0" v1.0 a1b2c3d`
+<br><br>
+
+**36** - Envia todas as tags para o repositório remoto.
+```
+git push --tags
+```
+<br>
+
+**37** - Volta o repositório para o estado do commit da tag.
+```
+git checkout <nome_tag>
+```
+Exemplo: `git checkout v1.0`
+<br><br>
+
+**38** - Remove a tag especificada.
+```
+git tag -d <nome_tag>
+```
+Exemplo: `git tag -d v1.0`
+<br><br>
+
+**39** - Remove a tag especificada do repositório remoto.
+```
+git push --delete origin <nome_tag>
+```
+Exemplo: `git push --delete origin v1.0`
+<br><br><br>
+
+### Links/Endereços/URL:
+<br>
+
+**40** - Lista todas as URLs associadas ao repositório local.
+```
+git remote -v
+```
+<br>
+
+**41** - Adiciona uma nova URL remota.
+```
+git remote add <palavra-chave> <url>
+```
+Exemplo: `git remote add origin https://github.com/user/repo.git`
+<br><br>
+
+**42** - Atualiza a URL de um repositório remoto existente.
+```
+git remote set-url <palavra-chave> <url>
+```
+Exemplo: `git remote set-url origin https://github.com/user/new-repo.git`
+<br><br><br>
+
+### Subir:
+<br>
+
+**43** - Envia commits locais para o repositório remoto.
+```
+git push
+```
+<br>
+
+**44** - Envia commits locais e cria a branch remota se não existir.
+```
+git push -u origin <nome_branch>
+```
+Exemplo: `git push -u origin main`
+<br><br>
+
+**45** - Força as mudanças locais a sobrescreverem o repositório remoto.
+```
+git push --force
+```
+<br>
+
+**46** - Força as mudanças se nenhuma mudança for perdida.
+```
+git push --force-with-lease
+```
+Exemplo: `git push --force-with-lease`
+<br><br>
+
+**47** - Remove a branch remota informada.
+```
+git push --delete origin <nome_branch>
+```
+Exemplo: `git push --delete origin dev`
+<br><br><br>
+
+### Descer:
+<br>
+
+**48** - Baixa commits do repositório remoto e integra as mudanças.
+```
+git pull
+```
+<br>
+
+**49** - Traz mudanças do remoto reescrevendo commits locais.
+```
+git pull --rebase
+```
+<br>
+
+### Reversão:
+<br>
+
+**50** - Remove o último commit e retorna ao estado anterior.
+```
+git revert --hard HEAD
+```
+<br>
+
+**51** - Remove o último commit mantendo as alterações para stage.
+```
+git revert --mixed HEAD
+```
+<br>
+
+**52** - Remove o último commit mantendo as alterações para commit.
+```
+git revert --soft HEAD
+```
+<br>
+
+**53** - Reverte os últimos <numero> commits.
+```
+git revert HEAD~<numero>
+```
+Exemplo: `git revert HEAD~2`
+<br><br>
+
+**54** - Reverte o commit especificado.
+```
+git revert <hash_commit>
+```
+Exemplo: `git revert a1b2c3d`
+<br><br>
+
+**55** - Reverte a reversão especificada.
+```
+git revert <hash_commit_reversao> --no-edit
+```
+Exemplo: `git revert a1b2c3d --no-edit`
+<br><br><br>
+
+***
+
+## Arquivos:
+
+### Adição:
+<br>
+
+**56** - Rastreia todos os novos arquivos e os modificados.
+```
+git add
+```
+<br>
+
+**57** - Rastreia todos os novos arquivos e os alterados no caminho atual.
+```
+git add .
+```
+<br>
+
+**58** - Rastreia os arquivos no caminho especificado.
+```
+git add <caminho>
+```
+Exemplo: `git add src/`
+<br><br><br>
+
+### Rastreamento:
+<br>
+
+**59** - Mostra novos arquivos não rastreados e os modificados.
+```
+git status
+```
+<br>
+
+**60** - Mostra novos arquivos e os modificados no caminho atual.
+```
+git status .
+```
+<br>
+
+**61** - Ignora o arquivo especificado.
+```
+git update-index --skip-worktree <nome_do_arquivo>
+```
+Exemplo: `git update-index --skip-worktree config.yml`
+<br><br>
+
+**62** - Remove a ignorância do arquivo especificado.
+```
+git update-index --no-skip-worktree <nome_do_arquivo>
+```
+Exemplo: `git update-index --no-skip-worktree config.yml`
+<br><br><br>
+
+### Commit:
+<br>
+
+**63** - Salva todos os arquivos rastreados com uma mensagem.
+```
+git commit -m "<documentacao>"
+```
+Exemplo: `git commit -m "Initial commit"`
+<br><br>
+
+**64** - Adiciona e salva todos os arquivos rastreados modificados.
+```
+git commit -a -m "<documentacao>"
+```
+Exemplo: `git commit -a -m "Updated files"`
+<br><br>
+
+**65** - Altera o último commit com uma nova mensagem.
+```
+git commit --amend -m "<documentacao>"
+```
+Exemplo: `git commit --amend -m "Corrected message"`
+<br><br>
+
+**66** - Altera o último commit sem mudar a mensagem.
+```
+git commit --amend --no-edit
+```
+<br>
+
+**67** - Abre o editor para alterar o último commit.
+```
+git commit --amend
+```
+<br>
+
+### Remoção:
+<br>
+
+**68** - Remove todos os arquivos rastreados do índice.
+```
+git rm --cached -r .
+```
+<br>
+
+**69** - Remove os arquivos não rastreados.
+```
+git clean -f
+```
+Exemplo: `git clean -f`
+<br><br>
+
+**70** - Remove todas as alterações não commitadas e volta ao último commit.
+```
+git reset --hard
+```
+<br>
+
+### Backup:
+<br>
+
+**71** - Salva as mudanças em cache e retorna ao último commit.
+```
+git stash
+```
+<br>
+
+**72** - Mostra todas as mudanças salvas em stash.
+```
+git stash list
+```
+<br>
+
+**73** - Aplica um stash específico.
+```
+git stash apply stash@{<id>}
+```
+Exemplo: `git stash apply stash@{0}`
+<br><br>
+
+**74** - Aplica e remove um stash específico.
+```
+git stash pop stash@{<id>}
+```
+Exemplo: `git stash pop stash@{0}`
+<br><br>
+
+**75** - Remove um stash específico.
+```
+git stash drop stash@{<id>}
+```
+Exemplo: `git stash drop stash@{0}`
+<br><br><br>
+
+***
+
+## Adicionais:
+
+**76** - Cria um arquivo para configurar arquivos a serem ignorados pelo git.
 ```
 touch .gitignore
 ```
+<br>
+
+**77** - Limpa a interface do git.
+```
+clear
+```
+<br>
+
+**78** - Gera uma chave SSH na pasta ~/.ssh/.
+```
+ssh-keygen
+```
+<br>
+
+**79** - Inicia um agente SSH.
+```
+eval $(ssh-agent)
+```
+<br>
+
+**80** - Adiciona a chave SSH privada ao agente.
+```
+ssh-add <caminho_chave_privada>
+```
+Exemplo: `ssh-add ~/.ssh/id_rsa`
+<br><br>
+
+**81** - Navega para a pasta informada.
+```
+cd <caminho>
+```
+Exemplo: `cd ~/.ssh`
+<br><br>
+
+**82** - Abre o VS Code no caminho atual.
+```
+code .
+```
+<br>
