@@ -1,6 +1,6 @@
 # Comandos Úteis do Git
 
-Neste repositório, é fornecida uma breve base de comandos Git, de forma simplificada e rápida. Recomenda-se o estudo aprofundado para entender os conceitos do Git, seus comandos, bem como o motivo e o cenários correta=os de sua utilização.
+Neste repositório, é fornecida uma breve base de comandos Git, de forma simplificada e rápida. Recomenda-se o estudo aprofundado para entender os conceitos do Git, seus comandos, bem como o motivo e o cenário correto para sua utilização.
 
 ## Breves Conceitos
 
