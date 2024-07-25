@@ -34,6 +34,7 @@ Neste repositório, é fornecida uma breve base de comandos Git, de forma simpli
 <br>
 
 Esses conceitos são fundamentais para compreender como o Git gerencia e controla o código ao longo do tempo, facilitando no entendimento de comandos e seu uso no gerenciamento de versões de software.
+<br><br>
 
 ***
 
@@ -43,9 +44,9 @@ Esses conceitos são fundamentais para compreender como o Git gerencia e control
 * [Repositório](#Repositório)
 * [Arquivos](#Arquivos)
 * [Adicionais](#Adicionais)
+<br>
 
 ***
-<br>
 
 ## Configurações:
 
