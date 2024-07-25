@@ -6,24 +6,24 @@ Neste repositório, é fornecida uma breve base de comandos Git, de forma simpli
 
 **Áreas dos Arquivos:**
 
-- ***Working Directory:*** * é onde os arquivos são `trabalhados e modificados` antes de serem adicionados ao Stage. {#working_directory}
-- ***Staging Area:*** é onde os arquivos modificados são `preparados` para o commit. Os arquivos nesta área estão prontos para serem incluídos na próxima confirmação. {#staging_area}
-- ***Repository:*** é o banco de dados do Git onde `todos os commits são armazenados` permanentemente como `histórico do projeto`. {#repository}
+- ***Working Directory:*** * é onde os arquivos são `trabalhados e modificados` antes de serem adicionados ao Stage.
+- ***Staging Area:*** é onde os arquivos modificados são `preparados` para o commit. Os arquivos nesta área estão prontos para serem incluídos na próxima confirmação.
+- ***Repository:*** é o banco de dados do Git onde `todos os commits são armazenados` permanentemente como `histórico do projeto`.
 
 **Estados dos Arquivos:**
 
-- ***Untracked:*** são `arquivos novos` no diretório de trabalho, que `não estão rastreados` pelo Git. {#untracked}
-- ***Tracked/Unmodified:*** são arquivos que já foram `rastreados` e `commitados` pelo Git, mas `não foram modificados` desde o último commit. {#tracked} {#unmodified}
-- ***Modified:*** são arquivos que foram `modificados` desde o último commit, mas ainda não foram adicionados ao stage. {#modified}
-- ***Staged:*** são arquivos que foram modificados e `adicionados ao Stage`, prontos para serem incluídos no próximo commit. {#staged}
+- ***Untracked:*** são `arquivos novos` no diretório de trabalho, que `não estão rastreados` pelo Git.
+- ***Tracked/Unmodified:*** são arquivos que já foram `rastreados` e `commitados` pelo Git, mas `não foram modificados` desde o último commit.
+- ***Modified:*** são arquivos que foram `modificados` desde o último commit, mas ainda não foram adicionados ao stage.
+- ***Staged:*** são arquivos que foram modificados e `adicionados ao Stage`, prontos para serem incluídos no próximo commit.
 
 ## Outros Conceitos Importantes:
 
-- ***Branches:*** são `ramificações` do desenvolvimento do código. Cada branch pode representar uma linha separada de desenvolvimento, permitindo um desenvolvimento paralelo sem interferir na branch principal (normalmente `master` ou `main`). Mudanças e alterações feitas nas ramificações podem ser integradas à branch principal durante a linha do tempo. {#branch}
+- ***Branches:*** são `ramificações` do desenvolvimento do código. Cada branch pode representar uma linha separada de desenvolvimento, permitindo um desenvolvimento paralelo sem interferir na branch principal (normalmente `master` ou `main`). Mudanças e alterações feitas nas ramificações podem ser integradas à branch principal durante a linha do tempo.
 
-- ***Commits:*** são `versões` de arquivos, pastas e outros componentes dentro do repositório. Cada commit deve ter uma mensagem descritiva que indica as adições e/ou alterações feitas. {#commit}
+- ***Commits:*** são `versões` de arquivos, pastas e outros componentes dentro do repositório. Cada commit deve ter uma mensagem descritiva que indica as adições e/ou alterações feitas.
 
-- ***HEAD:*** é um `ponteiro` especial que indica o commit atual no qual o repositório se encontra no branch ativo, normalmente apontando para o último commit do histórico. No entanto, o HEAD pode apontar para commits mais antigos quando comandos específicos são usados, resultando em um estado conhecido como `detached HEAD`. Observação: um branch sempre irá apontar para o commit mais recente e visível no histórico; por outro lado, o HEAD pode apontar para o mesmo commit ou outros selecionados. {#head}
+- ***HEAD:*** é um `ponteiro` especial que indica o commit atual no qual o repositório se encontra no branch ativo, normalmente apontando para o último commit do histórico. No entanto, o HEAD pode apontar para commits mais antigos quando comandos específicos são usados, resultando em um estado conhecido como `detached HEAD`. Observação: um branch sempre irá apontar para o commit mais recente e visível no histórico; por outro lado, o HEAD pode apontar para o mesmo commit ou outros selecionados.
 
 ## Alertas:
 
